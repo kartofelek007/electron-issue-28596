@@ -4,6 +4,7 @@ const {
     shell,
     BrowserWindow,
     ipcMain,
+    globalShortcut,
     Menu,
 } = require('electron');
 
@@ -27,6 +28,10 @@ app.on('ready', () => {
     mainWindow.loadFile('index.html');
 
     // Menu.setApplicationMenu(null);
+
+    globalShortcut.register("Escape", () => {
+        app.quit()
+    });
 });
 
 app.on('window-all-closed', () => {

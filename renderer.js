@@ -6,8 +6,16 @@ const changeCanvasSize = () => {
     canvas.height = window.innerHeight;
 }
 
+const drawESCtext = () => {
+    ctx.font = "bold 40px Arial";
+    ctx.fillStyle = "red";
+    ctx.textBaseline = "top"
+    ctx.fillText("Press ESC to exit", 30, 30);
+}
+
 window.addEventListener("resize", changeCanvasSize);
 changeCanvasSize();
+drawESCtext();
 
 canvas.addEventListener("mousemove", e => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -24,6 +32,8 @@ canvas.addEventListener("mousemove", e => {
     ctx.stroke();
     ctx.closePath();
     ctx.restore();
+
+    drawESCtext();
 })
 
 canvas.addEventListener("mousedown", e => {
